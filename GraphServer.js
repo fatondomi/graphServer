@@ -26,8 +26,13 @@ http.createServer(function (req, resp) {
     }
 
     else if (url == "/") {
+        if (pointC > 0) {
+
+        }
+        else{
         resp.writeHead(200, { "Content-Type": "text/html" });
         resp.end(fs.readFileSync("webPage.txt", "utf8"));
+        }
     }
     else { resp.end();}
 

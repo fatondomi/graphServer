@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GetGraph</title>
+</head>
+<body>
+	<script>
+	var points=[];
+	//define points
+	var tab1=document.createElement("table");
+	for(i=0;i<)
+	document.body.appendChild(tab1);
+	
+	</script>
+</body>
+</html>
