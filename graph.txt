@@ -2,15 +2,27 @@
 <html>
 <head>
 	<title>GetGraph</title>
+	<style>
+		table, th, td {
+   		border: 1px solid black;
+		}
+	</style>
 </head>
 <body>
 	<script>
 	var points=[];
 	//define points
 	var tab1=document.createElement("table");
-	for(i=0;i<)
+	for(i=0;i<pointC;i++){
+		var tr=tab1.insertRow();
+		var td1=tr.insertCell();
+			td1.innerHTML=points[i][0];
+		td1.setAttribute("id","r"+i+"c0");
+		var td2=tr.insertCell();
+			td2.innerHTML=points[i][1];
+		td1.setAttribute("id","r"+i+"c1");
+		}
 	document.body.appendChild(tab1);
-	
 	</script>
 </body>
 </html>
