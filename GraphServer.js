@@ -14,25 +14,27 @@ http.createServer(function (req, resp) {
     url = req.url;
     
 	//logging method and url to cmd
-    console.log("method = " + method + "   url = " + url+"\n");
+    console.log("\n method = " + method + "   url = " + url);
 
-    if (url.indexOf("/addPoint/x=") == 0) {
-        try{
-			//getting xvalue and yvalue and storing them in points[]
-            var xEndP=url.indexOf("/",12);
-            points[pointC][0] = parseInt(url.slice(12, xEndP));
+    if (url.indexOf("/addpoint/x=") == 0) {
+        try {
+            //getting xvalue and yvalue and storing them in points[]
+            var xEndP = url.indexOf("/", 12);           
             var yEndP = url.indexOf("/", xEndP + 1);
-            points[pointC][1] = parseInt(url.slice(xEndP + 3, yEndP));//finnished point strorage
-			
-			//counting how many points are stored in points[]
-            pointC++; console.log("pointC = " + pointC);
-        }
-        catch (e) {
-			console.log("Error while adding point!  x="+parseInt(url.splice(11, xEndP)));
+            points.push([parseInt(url.slice(12, xEndP)),parseInt(url.slice(xEndP + 3, yEndP))]);//finnished point strorage
+
+            //counting how many points are stored in points[]
+            pointC++;
+        } catch (e) {
+            console.log("Error aquiring point");
+            console.log("##########\n" + e.message + "\n##########");
+            console.log(e.description + "\n##########");
             resp.end();
         }
-        console.log("point aquired (" + parseInt(url.slice(12, xEndP))+","+parseInt(url.slice(xEndP + 3, yEndP)+")"));
-		resp.end();
+        finally{
+            console.log("\n Point aquired (" + points[pointC - 1][0] + "," + points[pointC - 1][1] + ") \n");
+        }
+        resp.end();
     }
 
     else if (url == "/") {

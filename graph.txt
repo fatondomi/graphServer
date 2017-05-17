@@ -5,10 +5,15 @@
 	<style>
 		table, th, td {
    		border: 1px solid black;
+		padding-left : 10px;
+		padding-right : 10px;
+		text-align : center;
 		}
 	</style>
 </head>
 <body>
+	<p>time | distance
+	</p>
 	<script>
 	var points=[];
 	//define points
