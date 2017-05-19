@@ -12,7 +12,7 @@ var graph=fs.readFileSync("graph.txt","utf8");
 http.createServer(function (req, resp) {
     method = req.method;
     url = req.url;
-    
+    graph = fs.readFileSync("graph.txt", "utf8");
 	//logging method and url to cmd
     console.log("\n method = " + method + "   url = " + url);
 

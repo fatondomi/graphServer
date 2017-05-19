@@ -1,7 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>GetGraph</title>
+
+	<script>
+	function rotate_point(in_x, in_y, in_angle, out_request) {
+		var module = Math.sqrt(Math.pow(in_x, 2) + Math.pow(in_y, 2));
+		var angle = Math.atan(in_y / in_x);
+		angle += in_angle * Math.PI / 180;
+		if (out_request == "x") { return (module * Math.cos(angle)) }
+		if (out_request == "y") { return (module * Math.sin(angle)) }
+	}
+
+	var line = {
+		x: 360,
+		y: 240,
+		length: 100,
+		color:'black',
+		width:4,
+
+		print: function (in_x, in_y, in_length, in_angle, in_color, in_width) {
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+
+			if (in_x == null){
+				ctx.strokeStyle = this.color;
+				ctx.lineWidth = this.width;
+				ctx.beginPath();
+				ctx.moveTo(this.x, this.y);
+				ctx.lineTo(this.x+this.length, this.y);
+				ctx.stroke();
+				}
+
+			else {
+				ctx.strokeStyle = in_color;
+				ctx.lineWidth = in_width;
+				ctx.beginPath();
+				ctx.moveTo(in_x, in_y);
+				var x2 = in_length;
+				var y2 = 0;
+				ctx.lineTo(in_x + rotate_point(x2, y2, in_angle, "x"), in_y - rotate_point(x2, y2, in_angle, "y"));
+				ctx.stroke();
+				}
+			}
+	}
+
+	var x={
+		min : -10,
+		max	: 10,
+		step : 1,
+	}
+
+	var y={
+		min : -10,
+		max	: 10,
+		step : 1,
+	}
+
+	function updateGraph(){
+		//480x740
+		line.print(0,240,740,0,"#000000",1);
+		line.print(370,480,480,90,"#000000",1);
+		line.print(400-2.5,200,5,0,"red",1);
+		line.print(400,200+2.5,5,90,"red",1);                            
+	}
+	</script>
+
 	<style>
 		table, th, td {
    		border: 1px solid black;
@@ -9,9 +74,18 @@
 		padding-right : 10px;
 		text-align : center;
 		}
+		#canvas{border: 5px solid;
+        box-shadow: 10px 10px 5px #1a191a;
+	    border-radius:10px;
+		position:absolute;
+		top:60px;
+		left:200px;
+		}
 	</style>
+
 </head>
-<body>
+
+<body onLoad="updateGraph();">
 	<p>time | distance
 	</p>
 	<script>
@@ -29,5 +103,7 @@
 		}
 	document.body.appendChild(tab1);
 	</script>
+	<canvas Id = "canvas"   width="740"  height="480"></canvas>
 </body>
+
 </html>
