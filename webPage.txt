@@ -4,5 +4,6 @@
 	<title>GetGraph</title>
 </head>
 <body>
+<p>no points available</p>
 </body>
 </html>
