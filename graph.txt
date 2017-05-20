@@ -60,8 +60,34 @@
 
 	function updateGraph(){
 		//480x740
+		var canvas=document.getElementById("canvas");
+		var ctx=canvas.getContext("2d");
+		ctx.font="12px Arial";
+		 
+		//axis
 		line.print(0,240,740,0,"#000000",1);
 		line.print(370,480,480,90,"#000000",1);
+		
+		//y axis points
+		for(i=-5;i<6;i++){
+		line.print(367.5,240+i*40,5,0,"black",1);
+		if(i==0){continue;}
+		if(i>0){ctx.fillText(-i,351,243.5+i*40);continue;}
+		ctx.fillText(-i,355,243.5+i*40);
+		}
+
+		//x axis points
+		for(i=-9;i<10;i++){
+		line.print(370+i*40,242,5,90,"black",1);
+		if(i==0){continue;}
+		if(i<0){ctx.fillText(i,362+i*40,258);continue;}
+		ctx.fillText(i,366+i*40,258);
+		}
+
+		//titulli
+		ctx.fillText("Distanca per kohen",10,20);
+
+		//point
 		line.print(400-2.5,200,5,0,"red",1);
 		line.print(400,200+2.5,5,90,"red",1);                            
 	}
