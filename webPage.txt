@@ -4,6 +4,6 @@
 	<title>GetGraph</title>
 </head>
 <body>
-<p>no points available</p>
+<p>it is me lole  :)  paca paca</p>
 </body>
 </html>
