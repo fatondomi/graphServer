@@ -4,6 +4,5 @@
 	<title>GetGraph</title>
 </head>
 <body>
-<p>it is me lole  :)  paca paca</p>
 </body>
 </html>
