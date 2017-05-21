@@ -45,11 +45,11 @@ http.createServer(function (req, resp) {
 			var strPoints="points=[";
 			for(i=0;i<pointC;i++){
 				strPoints+="["+points[i][0]+","+points[i][1]+"],";
-			}strPoints+="]";//finnished making array definning string
+			}strPoints+="];";//finnished making array definning string
 			
 			//replacing parts of the graph string (which is a webpage template)
 			var newGraph=graph.replace("//define points",strPoints);
-			newGraph=newGraph.replace("pointC",pointC);//finnished replacing stuff
+			newGraph=newGraph.replace("//define pointC",pointC);//finnished replacing stuff
 			
 			resp.writeHead(200, { "Content-Type": "text/html" });
 			resp.end(newGraph);
