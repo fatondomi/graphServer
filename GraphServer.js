@@ -16,12 +16,12 @@ http.createServer(function (req, resp) {
 	//logging method and url to cmd
     console.log("\n method = " + method + "   url = " + url);
 
-    if (url.indexOf("/addpoint/x=") == 0) {
+    if (url.indexOf("/addPoint/x=") == 0) {
         try {
             //getting xvalue and yvalue and storing them in points[]
             var xEndP = url.indexOf("/", 12);           
             var yEndP = url.indexOf("/", xEndP + 1);
-            points.push([parseInt(url.slice(12, xEndP)),parseInt(url.slice(xEndP + 3, yEndP))]);//finnished point strorage
+            points.push([parseFloat(url.slice(12, xEndP)),parseFloat(url.slice(xEndP + 3, yEndP))]);//finnished point strorage
 
             //counting how many points are stored in points[]
             pointC++;
