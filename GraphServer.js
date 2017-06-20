@@ -70,6 +70,7 @@ http.createServer(function (req, resp) {
         console.error(err.stack);
     });
 
-}).listen(1234);//ip="192.168.0.107"
+}).listen(8080,"192.168.43.244");
+//ip e ruterit te shpise="192.168.0.107"
 
-console.log("Server running at localhost:1234");
+console.log("Server running at 192.168.43.244:8080");
